@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function getSavedValue(key, initialvalue) {
-    const savedValue =JSON.parse(localStorage.getItem(key));
+    const savedValue =JSON.parse(sessionStorage.getItem(key));
     if (savedValue){
         return savedValue;
     }else{
@@ -15,7 +15,7 @@ export default function LocalStorage(key, initialvalue){
     });
 
     useEffect(() =>{
-        localStorage.setItem(key, JSON.stringify(value));
+        sessionStorage.setItem(key, JSON.stringify(value));
     }, [value, key]);
 
     return [value, setValue];

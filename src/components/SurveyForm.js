@@ -3,19 +3,49 @@ import './SurveyForm.css'
 import FirstSurvey from './FirstSurvey'
 import SecondSurvey from './SecondSurvey'
 import ThirdSurvey from './ThirdSurvey';
+import axios from 'axios';
 
 function SurveyForm(props) {
-
   const [page, setPage] = useState(1);
+  const [data, setData] = useState({
+    token: '2f5b424f-59ad-40a3-9835-ba96a008c141',
+    first_name : '',
+    email: '12',
+    had_covid: true,
+    last_name: '12',
+    something_special: '12',
+    vaccinated: true,
+    will_organize_devtalk: true,
+    work_preference: 'from_home',
+  })
   
 
-  function goNextPage() {
-    if (page === 3) return;
+  function goNextPage() {    
     setPage((page) => page + 1);
+    if(page === 2){
+      setData(prevState => ({
+        ...prevState,
+        first_name: sessionStorage.getItem('FirstName')
+     }));
+    }
   }
 
+  function postData  () {
+    const url = 'https://bootcamp-2022.devtest.ge/api/application';
+    axios.post(url, data)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+
+
+
   function goPreviousPage() {
-    if (page === 1){
+    if (page === 1){      
+      sessionStorage.clear();
       props.setStart(true);
       props.openSurvey(false);
     };
@@ -34,14 +64,14 @@ function SurveyForm(props) {
       <div className="buttons">
 
         {page !== 3 && <div>
-                            <button onClick={goNextPage}>Go Next</button>
                             <button onClick={goPreviousPage}>Go Previous</button>
+                            <button onClick={goNextPage}>Go Next</button>
                         </div>}
 
-        {page === 3 && (
-          <button type="submit">
-            Submit
-          </button>)}
+        {page === 3 && <div>         
+                          <button type="submit" onClick={() => postData()}>Submit</button>
+                          <button onClick={goPreviousPage}>go back</button>
+                        </div>}
         </div>
       </div>
       <div className="info"> information</div>
