@@ -54,7 +54,7 @@ function SurveyForm(props) {
   
   return (
     <div className="surveyForm">
-      <div className="survey"> 
+      <div className="survey">
       <div className="survey-pages">
         {page === 1 && <FirstSurvey page={page}/>}
         {page === 2 && <SecondSurvey  />}
@@ -63,12 +63,12 @@ function SurveyForm(props) {
 
       <div className="buttons">
 
-        {page !== 3 && <div>
-                            <button onClick={goPreviousPage}>Go Previous</button>
-                            <button onClick={goNextPage}>Go Next</button>
+        {page !== 3 && <div className='page-btn'>
+                            <button onClick={goPreviousPage} className="btn btn-primary">Go Previous</button>
+                            <button onClick={goNextPage} className="btn btn-primary">Go Next</button>
                         </div>}
 
-        {page === 3 && <div>         
+        {page === 3 && <div className='submit-btn'>         
                           <button type="submit" onClick={() => postData()}>Submit</button>
                           <button onClick={goPreviousPage}>go back</button>
                         </div>}

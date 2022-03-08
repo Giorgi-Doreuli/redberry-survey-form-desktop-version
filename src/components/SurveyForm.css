@@ -1,14 +1,30 @@
 .surveyForm{
     width: 100vw;
     height: 100vh;
-    background-color: aqua;
     display: flex;
 }
 
 .survey{
     width: 50%;
     height: 100%;
-    background-color:pink;
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 50px;
+}
+
+
+.survey-pages{
+    width: 100%;
 }
 
 .info{

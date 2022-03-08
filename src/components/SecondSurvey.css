@@ -3,8 +3,8 @@
     width: 100%;
 }
 
-.form{
-    width: 100%;
+.form2{
+    width: 70%;
     height: 100%;
     display : flex;
     flex-direction: column;
@@ -12,4 +12,14 @@
     align-items: center;
     gap: 50px;
     margin: auto;
+}
+
+select{
+    padding: 5px 20px;
+    width: 350px;
+}
+
+.add-btn{
+    display: flex;
+    margin-right: -120px;
 }
