@@ -14,7 +14,7 @@ function StarterPage() {
                         <button className="submitted applications" onClick={() => {setOpenSubmitted(true); setStart(false)}}>submitted applications</button>
                     </div> : ''}
         <div>
-            {openSurvey ? <SurveyForm/> : ""}
+            {openSurvey ? <SurveyForm setStart={setStart} openSurvey={setOpenSurvey}/> : ""}
             {openSubmitted ? <SubmittedForms/> : ""}
         </div>
     </div>

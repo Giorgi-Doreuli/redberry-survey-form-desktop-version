@@ -15,28 +15,34 @@ function SurveyForm(props) {
   }
 
   function goPreviousPage() {
-    if (page === 1) return;
+    if (page === 1){
+      props.setStart(true);
+      props.openSurvey(false);
+    };
     setPage((page) => page - 1);
   }
   
   return (
     <div className="surveyForm">
       <div className="survey"> 
-      <div>
+      <div className="survey-pages">
         {page === 1 && <FirstSurvey page={page}/>}
         {page === 2 && <SecondSurvey  />}
         {page === 3 && <ThirdSurvey  />}
       </div>
 
-      {page !== 3 && <div>
-                          <button onClick={goNextPage}>Go Next</button>
-                          <button onClick={goPreviousPage}>Go Previous</button>
-                      </div>}
+      <div className="buttons">
 
-      {page === 3 && (
-        <button type="submit">
-          Submit
-        </button>)}
+        {page !== 3 && <div>
+                            <button onClick={goNextPage}>Go Next</button>
+                            <button onClick={goPreviousPage}>Go Previous</button>
+                        </div>}
+
+        {page === 3 && (
+          <button type="submit">
+            Submit
+          </button>)}
+        </div>
       </div>
       <div className="info"> information</div>
     </div>

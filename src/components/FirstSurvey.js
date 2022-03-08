@@ -10,8 +10,8 @@ function FirstSurvey() {
 
 
   return (
-    <div>
-        <form>
+    <div className="first-survey">
+        <form className="form">
             <input type="text" placeholder='First Name' onChange={(event) => setFirstName(event.target.value)} value = {FirstName}/>
             <input type="text" placeholder='Last Name'onChange={(event) => setLastName(event.target.value)} value = {LastName}/>
             <input type="email" placeholder='E Mail'onChange={(event) => setEmail(event.target.value)} value = {Email}/>
