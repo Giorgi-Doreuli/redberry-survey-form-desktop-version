@@ -2,4 +2,17 @@
     width: 100vw;
     height: 100vh;
     background-color: aqua;
+    display: flex;
+}
+
+.survey{
+    width: 50%;
+    height: 100%;
+    background-color:pink;
+}
+
+.info{
+    width: 50%;
+    height: 100%;
+    background-color:crimson;
 }

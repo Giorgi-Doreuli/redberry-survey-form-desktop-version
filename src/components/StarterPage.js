@@ -10,12 +10,12 @@ function StarterPage() {
   return (
     <div className="StarterPage">
         {start ?    <div className="buttons" >
-                        <button className="openSurvey" onClick={() => setOpenSurvey(true)}>open Survey</button>
-                        <button className="submitted applications" onClick={() => setOpenSubmitted(true)}>submitted applications</button>
+                        <button className="openSurvey" onClick={() => {setOpenSurvey(true); setStart(false)}}>open Survey</button>
+                        <button className="submitted applications" onClick={() => {setOpenSubmitted(true); setStart(false)}}>submitted applications</button>
                     </div> : ''}
         <div>
-            {openSurvey ? <SurveyForm setStart = {setStart}/> : ""}
-            {openSubmitted ? <SubmittedForms setStart = {setStart}/> : ""}
+            {openSurvey ? <SurveyForm/> : ""}
+            {openSubmitted ? <SubmittedForms/> : ""}
         </div>
     </div>
   )
