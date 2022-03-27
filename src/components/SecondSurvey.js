@@ -4,7 +4,7 @@ import SessionStorage from './SessionStorage'
 import axios from 'axios'
 import SkillList from './SkillList';
 
-function SecondSurvey() {
+function SecondSurvey(props) {
   const [skills, setSkills] = useState([]);
   const [experiences, setExperiences] = SessionStorage('experience', '');
   const [dropdownValues, setDropdownValues] = useState('');
@@ -69,6 +69,10 @@ function SecondSurvey() {
           <button type="button" className="add-btn btn btn-primary" onClick={() => addSkill()}>Add Programming Language</button>
           <SkillList items = {items} removeSkill={setItems} itemsLength={items.length}/>
       </form>
+      <div className='page-btn'>
+              <button onClick={() => props.prevpage()} className="btn btn-primary">Go Previous</button>
+              <button onClick={() => props.nextpg()} className="btn btn-primary">Go Next</button>
+          </div>
     </div>
   )
 }

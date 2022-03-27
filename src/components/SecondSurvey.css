@@ -23,3 +23,10 @@ select{
     display: flex;
     margin-right: -120px;
 }
+
+.page-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}

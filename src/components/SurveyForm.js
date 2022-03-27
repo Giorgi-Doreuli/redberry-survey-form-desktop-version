@@ -60,7 +60,7 @@ function SurveyForm(props) {
       <div className="survey">
       <div className="survey-pages">
         {page === 1 && <FirstSurvey valid={setValid} nextpg={goNextPage} prevpage={goPreviousPage}/>}
-        {page === 2 && <SecondSurvey valid={setValid}/>}
+        {page === 2 && <SecondSurvey valid={setValid} nextpg={goNextPage} prevpage={goPreviousPage}/>}
         {page === 3 && <ThirdSurvey  />}
       </div>
 
