@@ -17,16 +17,19 @@ function SurveyForm(props) {
     vaccinated: true,
     will_organize_devtalk: true,
     work_preference: 'from_home',
-  })
+  });
+  const [valid, setValid] = useState(false);
   
 
   function goNextPage() {    
-    setPage((page) => page + 1);
-    if(page === 2){
-      setData(prevState => ({
-        ...prevState,
-        first_name: sessionStorage.getItem('FirstName')
-     }));
+    if(valid){      
+      setPage((page) => page + 1);
+      if(page === 2){
+          setData(prevState => ({
+            ...prevState,
+            first_name: sessionStorage.getItem('FirstName')
+        }));
+      }
     }
   }
 
@@ -56,18 +59,12 @@ function SurveyForm(props) {
     <div className="surveyForm">
       <div className="survey">
       <div className="survey-pages">
-        {page === 1 && <FirstSurvey page={page}/>}
-        {page === 2 && <SecondSurvey  />}
+        {page === 1 && <FirstSurvey valid={setValid} nextpg={goNextPage} prevpage={goPreviousPage}/>}
+        {page === 2 && <SecondSurvey valid={setValid}/>}
         {page === 3 && <ThirdSurvey  />}
       </div>
 
       <div className="buttons">
-
-        {page !== 3 && <div className='page-btn'>
-                            <button onClick={goPreviousPage} className="btn btn-primary">Go Previous</button>
-                            <button onClick={goNextPage} className="btn btn-primary">Go Next</button>
-                        </div>}
-
         {page === 3 && <div className='submit-btn'>         
                           <button type="submit" onClick={() => postData()}>Submit</button>
                           <button onClick={goPreviousPage}>go back</button>

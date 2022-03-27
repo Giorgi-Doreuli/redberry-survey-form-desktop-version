@@ -9,7 +9,7 @@ function getSavedValue(key, initialvalue) {
     }
 }
 
-export default function LocalStorage(key, initialvalue){
+export default function SessionStorage(key, initialvalue){
     let [value, setValue] = useState(() => {
         return getSavedValue(key, initialvalue);
     });

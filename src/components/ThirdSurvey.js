@@ -3,7 +3,9 @@ import './ThirdSurvey.css'
 
 function ThirdSurvey() {
   return (
-    <div>ThirdSurvey</div>
+    <div>
+      
+    </div>
   )
 }
 

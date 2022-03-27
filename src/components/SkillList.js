@@ -5,7 +5,9 @@ function SkillList(props) {
     const updatedList = props.items;
 
     const removeSkill = (index) => {
-        props.removeSkill(updatedList.slice(0, index).concat(updatedList.slice(index + 1, updatedList.length)));
+        if(props.itemsLength !== 1){
+            props.removeSkill(updatedList.slice(0, index).concat(updatedList.slice(index + 1, updatedList.length)));
+        }
       }
 
   return (

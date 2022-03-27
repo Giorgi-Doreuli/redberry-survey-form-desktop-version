@@ -14,7 +14,7 @@ function SecondSurvey() {
       experience : '2'
     },
     {
-      skill: 'React',
+      skill: 'React.JS',
       experience : '3'
     }
   ]);
@@ -41,7 +41,10 @@ function SecondSurvey() {
         skill: dropdownValues,
         experience : experiences
       };
-       setItems([...items, newSkill]);
+
+      if (items.filter(e => e.skill === dropdownValues).length < 1 && experiences === '') {
+          setItems([...items, newSkill]);
+      }
   }
 
 
@@ -64,7 +67,7 @@ function SecondSurvey() {
       </div>
           <input type="text" placeholder='Experience duration in years' onChange={(event) => setExperiences(event.target.value)} value = {experiences || ''}/>
           <button type="button" className="add-btn btn btn-primary" onClick={() => addSkill()}>Add Programming Language</button>
-          <SkillList items = {items} removeSkill={setItems}/>
+          <SkillList items = {items} removeSkill={setItems} itemsLength={items.length}/>
       </form>
     </div>
   )
