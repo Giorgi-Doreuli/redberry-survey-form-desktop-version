@@ -116,25 +116,25 @@ function FirstSurvey(props) {
       </div>
         <form className="form1" >
               <input  type="text" placeholder='First Name' 
-                      onChange={(event) => setFirstName(event.target.value)} value = {FirstName || ''}
+                      onChange={(event) => setFirstName(event.target.value)} value = {FirstName}
                       onBlur={() => validateName(FirstName)}
                       required/>
                       <div ishidden={isNameValid} className='error'>
                           <p>{nameErr}</p>
                       </div>
-              <input  type="text" placeholder='Last Name'onChange={(event) => setLastName(event.target.value)} value = {LastName || ''}
+              <input  type="text" placeholder='Last Name'onChange={(event) => setLastName(event.target.value)} value = {LastName}
                       onBlur={() => validateLastName(LastName)}
                       required/>
                       <div ishidden={isLastNameValid} className='error'>
                            <p>{lastNameErr}</p>
                       </div>
-              <input type="email" placeholder='E Mail'onChange={(event) => setEmail(event.target.value)} value = {Email || ''}
+              <input type="email" placeholder='E Mail'onChange={(event) => setEmail(event.target.value)} value = {Email}
                       onBlur={() => validateEmail(Email)}
                       required/>
                       <div ishidden={isEmailValid} className='error'>
                           <p>{EmailErr}</p>
                       </div>
-              <input type="text" placeholder='+995 5 _ _ _ _'onChange={(event) => setNumber(event.target.value)} value = {number || ''}
+              <input type="text" placeholder='+995 5 _ _ _ _'onChange={(event) => setNumber(event.target.value)} value = {number}
                       onBlur={() => validateNumber(number)}
                       required/>
                       <div ishidden={isPhoneValid} className='error'>

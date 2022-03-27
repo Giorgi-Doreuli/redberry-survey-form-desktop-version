@@ -30,3 +30,7 @@ select{
     justify-content: center;
     gap: 100px;
 }
+
+.error{
+    height: 50px;
+}
