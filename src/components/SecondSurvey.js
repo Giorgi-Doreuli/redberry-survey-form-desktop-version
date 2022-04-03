@@ -24,10 +24,6 @@ function SecondSurvey(props) {
     }
   ]);
 
-    
-  if(items.length > 1){
-    props.valid(true);
-  }
 
   const addSkill = () => {
 
@@ -45,7 +41,6 @@ function SecondSurvey(props) {
       if (items.filter(e => e.skill === dropdownValues).length < 1 && filterExperience !== 'DEFAULT' && filterSkill !== 'DEFAULT') {
           setItems([...items, newSkill]);
           setSkillQuantityValid(true);
-          props.valid(true);
       }
 
 
@@ -55,7 +50,6 @@ function SecondSurvey(props) {
 
   const checkAndNextPage = () => {
     if(items.length === 0){
-      props.valid(false);
       setSkillQuantityError('You must choose at least 1 skill');
       setSkillQuantityValid(false);
       setIsSkillRepeated(true);
@@ -94,8 +88,7 @@ function SecondSurvey(props) {
         <div className="skills">
             <select onChange={e => setDropdownValues(e.target.value)} 
                     defaultValue={'DEFAULT'} 
-                    id='defaultSkill'
-                    onClick={() => validateSkills(dropdownValues)}>
+                    id='defaultSkill'>
                 <option value="DEFAULT" disabled>choose skills</option>
                 {skills.map(item => (
                 <option
@@ -114,8 +107,7 @@ function SecondSurvey(props) {
       <div className="experience">
             <select onChange={e => setExperiences(e.target.value)} 
                     defaultValue={'DEFAULT'} 
-                    id='defaultExperience'
-                    onClick={() => validateExperience(experiences)}>
+                    id='defaultExperience'>
                 <option value="DEFAULT" disabled>choose experience level</option>
                 <option id='<year' value='<year'> less than a year</option>
                 <option id='1year' value='1year'> 1 year</option>

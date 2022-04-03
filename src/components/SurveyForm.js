@@ -8,21 +8,15 @@ import axios from 'axios';
 function SurveyForm(props) {
   const [page, setPage] = useState(1);
   const [data, setData] = useState({
-    token: '2f5b424f-59ad-40a3-9835-ba96a008c141',
     first_name : '',
-    email: '12',
-    had_covid: true,
-    last_name: '12',
-    something_special: '12',
-    vaccinated: true,
-    will_organize_devtalk: true,
-    work_preference: 'from_home',
+    last_name: '',
+    items: [],
+    email: '',
+    number: ''
   });
-  const [valid, setValid] = useState(false);
   
 
   function goNextPage() {    
-    if(valid){      
       setPage((page) => page + 1);
       if(page === 2){
           setData(prevState => ({
@@ -30,7 +24,6 @@ function SurveyForm(props) {
             first_name: sessionStorage.getItem('FirstName')
         }));
       }
-    }
   }
 
   function postData  () {
@@ -59,8 +52,8 @@ function SurveyForm(props) {
     <div className="surveyForm">
       <div className="survey">
       <div className="survey-pages">
-        {page === 1 && <FirstSurvey clearStorage={clearStorage} valid={setValid} nextpg={goNextPage} prevpage={goPreviousPage}/>}
-        {page === 2 && <SecondSurvey valid={setValid} nextpg={goNextPage} prevpage={goPreviousPage}/>}
+        {page === 1 && <FirstSurvey clearStorage={clearStorage}  nextpg={goNextPage} prevpage={goPreviousPage}/>}
+        {page === 2 && <SecondSurvey nextpg={goNextPage} prevpage={goPreviousPage}/>}
         {page === 3 && <ThirdSurvey  />}
       </div>
 

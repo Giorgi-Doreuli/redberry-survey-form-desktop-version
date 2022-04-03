@@ -9,13 +9,13 @@ function FirstSurvey(props) {
     const [Email, setEmail] = SessionStorage('Email', '');
     const [number, setNumber] = SessionStorage('Number', '');
     const [nameErr, setNameErr] = useState('');
-    const [isNameValid, setIsNameValid] = useState(true);
+    const [isNameValid, setIsNameValid] = useState(false);
     const [lastNameErr, setLastNameErr] = useState('');
-    const [isLastNameValid, setIsLastNameValid] = useState(true);
+    const [isLastNameValid, setIsLastNameValid] = useState(false);
     const [EmailErr, setEmailErr] = useState('');
-    const [isEmailValid, setIsEmailValid] = useState(true);
+    const [isEmailValid, setIsEmailValid] = useState(false);
     const [phoneErr, setPhoneErr] = useState('');
-    const [isPhoneValid, setIsPhoneValid] = useState(true);
+    const [isPhoneValid, setIsPhoneValid] = useState(false);
 
 
     const validateName = (checkingText) => {
@@ -24,11 +24,9 @@ function FirstSurvey(props) {
         if (regexpFirstName.exec(checkingText) !== null) {
           setIsNameValid(true);
           setNameErr('');
-          props.valid(true);
             } else {
                     setIsNameValid(false);
                     setNameErr('You should use more than 2 letter.');
-                    props.valid(false);
             }
         }
     }
@@ -39,11 +37,9 @@ function FirstSurvey(props) {
         if (regexpLastName.exec(checkingText) !== null) {
           setIsLastNameValid(true);
           setLastNameErr('');
-          props.valid(true);
           } else {
                     setIsLastNameValid(false);
                     setLastNameErr('You should use more than 2 letter.');
-                    props.valid(false);
             }
       }
     }
@@ -55,11 +51,9 @@ function FirstSurvey(props) {
         if (regexpEmail.exec(checkingText) !== null) {
           setIsEmailValid(true);
           setEmailErr('');
-          props.valid(true);
             } else {
                     setIsEmailValid(false);
                     setEmailErr('type email.');
-                    props.valid(false);
             }
       }
     }
@@ -70,40 +64,27 @@ function FirstSurvey(props) {
         if (regexpPhone.exec(checkingText) !== null) {
           setIsPhoneValid(true);
           setPhoneErr('');
-          props.valid(true);
             } else {
                     setIsPhoneValid(false);
                     setPhoneErr('Phone should be like +995 5xx-xx-xx-xx');
-                    props.valid(false);
             }
     }
     }
+
+    const goNextPage = () => {
+      showErrors();
+        if(isNameValid && isLastNameValid && isEmailValid && isPhoneValid){
+          props.nextpg();
+        }
+    }
+  
     
 
     const showErrors = () => {
-        if(FirstName === ''){
-          setIsNameValid(false);
-          setNameErr('You should use more than 2 letter.');
-          props.valid(false);
-        }
-
-        if(LastName === ''){
-          setIsLastNameValid(false);
-          setLastNameErr('You should use more than 2 letter.');
-          props.valid(false);
-        }
-
-        if(Email === ''){
-          setIsEmailValid(false);
-          setEmailErr('type email.');
-          props.valid(false);
-        }
-
-        if(number === ''){
-          setIsPhoneValid(false);
-          setPhoneErr('Phone should be like +995 5xx-xx-xx-xx');
-          props.valid(false);
-        }
+      validateName(FirstName);
+      validateLastName(LastName);
+      validateEmail(Email);
+      validateNumber(number);
     }
 
 
@@ -143,7 +124,7 @@ function FirstSurvey(props) {
         </form>  
           <div className='page-btn'>
               <button onClick={() => {props.prevpage(); props.clearStorage()}} className="btn btn-primary">Go Previous</button>
-              <button onClick={() => {props.nextpg(); showErrors()}} className="btn btn-primary">Go Next</button>
+              <button onClick={() => goNextPage()} className="btn btn-primary">Go Next</button>
           </div>
     </div>
   )
