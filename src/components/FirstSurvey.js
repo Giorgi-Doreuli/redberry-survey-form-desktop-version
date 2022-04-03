@@ -65,7 +65,7 @@ function FirstSurvey(props) {
     }
 
     const validateNumber = (checkingText) => {
-      const regexpPhone = /^\+(995)[-\s]?(5)\d{2}[-\s]?((\d{2}[-\s]?)(\d{2}[-\s]?)(\d{2}))/;
+      const regexpPhone = /^\+(995)[-\s]?(5)\d{2}[-\s]?(\d{2}[-\s]?){3}$/;
       if(checkingText === number){
         if (regexpPhone.exec(checkingText) !== null) {
           setIsPhoneValid(true);
@@ -142,7 +142,7 @@ function FirstSurvey(props) {
                       </div>
         </form>  
           <div className='page-btn'>
-              <button onClick={() => props.prevpage()} className="btn btn-primary">Go Previous</button>
+              <button onClick={() => {props.prevpage(); props.clearStorage()}} className="btn btn-primary">Go Previous</button>
               <button onClick={() => {props.nextpg(); showErrors()}} className="btn btn-primary">Go Next</button>
           </div>
     </div>

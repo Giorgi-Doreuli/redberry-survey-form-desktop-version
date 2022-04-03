@@ -45,13 +45,13 @@ function SurveyForm(props) {
   }
 
 
+  const clearStorage = () => {
+    sessionStorage.clear();
+    props.setStart(true);
+    props.openSurvey(false);
+  }
 
-  function goPreviousPage() {
-    if (page === 1){      
-      sessionStorage.clear();
-      props.setStart(true);
-      props.openSurvey(false);
-    };
+  function goPreviousPage(){
     setPage((page) => page - 1);
   }
   
@@ -59,7 +59,7 @@ function SurveyForm(props) {
     <div className="surveyForm">
       <div className="survey">
       <div className="survey-pages">
-        {page === 1 && <FirstSurvey valid={setValid} nextpg={goNextPage} prevpage={goPreviousPage}/>}
+        {page === 1 && <FirstSurvey clearStorage={clearStorage} valid={setValid} nextpg={goNextPage} prevpage={goPreviousPage}/>}
         {page === 2 && <SecondSurvey valid={setValid} nextpg={goNextPage} prevpage={goPreviousPage}/>}
         {page === 3 && <ThirdSurvey  />}
       </div>
