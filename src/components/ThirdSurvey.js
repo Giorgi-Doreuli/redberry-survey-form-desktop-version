@@ -1,10 +1,14 @@
 import React from 'react'
 import './ThirdSurvey.css'
 
-function ThirdSurvey() {
+function ThirdSurvey(props) {
+  
   return (
-    <div>
-      
+    <div className="ThirdSurvey">
+      <div className='page-btn'>
+        <button onClick={() => props.prevpage()} className="btn btn-primary">Go Previous</button>
+        <button onClick={() => props.postData()} className="btn btn-primary">Go Next</button>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,73 @@
 .submittedForms{
     width: 100vw;
     height: 100vh;
-    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+}
+
+.person-info{
+    height: 80%;
+    width: 80%;
+}
+
+.top-part{
+    height: 10%;
+    background: #F05039;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-part-text{
+    color: #fff;
+    margin-left: 40px;
+}
+
+.top-part-arrow{
+    height: 20px;
+    width: 20px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.slider{
+    background-color: #fff;
+    height: 90%;
+    width: 100%;
+}
+
+.personal-info-header{
+    color: #F05039;
+    text-decoration: underline;
+}
+
+.personal-info{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.personal-info-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.firstName{
+    display: flex;
+    justify-content: left;
+    gap: 60px;
+}
+
+.full-info{    
+    display : flex;
+    justify-content: space-around;
+    padding-top: 40px;
+}
+
+.empty{
+    width: 0;
+    height: 0;
 }

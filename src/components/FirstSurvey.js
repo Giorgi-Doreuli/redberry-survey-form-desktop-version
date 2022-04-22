@@ -9,13 +9,14 @@ function FirstSurvey(props) {
     const [Email, setEmail] = SessionStorage('Email', '');
     const [number, setNumber] = SessionStorage('Number', '');
     const [nameErr, setNameErr] = useState('');
-    const [isNameValid, setIsNameValid] = useState(false);
+    const [isNameValid, setIsNameValid] = useState(true);
     const [lastNameErr, setLastNameErr] = useState('');
-    const [isLastNameValid, setIsLastNameValid] = useState(false);
+    const [isLastNameValid, setIsLastNameValid] = useState(true);
     const [EmailErr, setEmailErr] = useState('');
-    const [isEmailValid, setIsEmailValid] = useState(false);
+    const [isEmailValid, setIsEmailValid] = useState(true);
     const [phoneErr, setPhoneErr] = useState('');
-    const [isPhoneValid, setIsPhoneValid] = useState(false);
+    const [isPhoneValid, setIsPhoneValid] = useState(true);
+
 
 
     const validateName = (checkingText) => {
@@ -58,26 +59,36 @@ function FirstSurvey(props) {
       }
     }
 
+    let check = false;
+
     const validateNumber = (checkingText) => {
       const regexpPhone = /^\+(995)[-\s]?(5)\d{2}[-\s]?(\d{2}[-\s]?){3}$/;
       if(checkingText === number){
         if (regexpPhone.exec(checkingText) !== null) {
           setIsPhoneValid(true);
           setPhoneErr('');
+          check = true;
             } else {
                     setIsPhoneValid(false);
                     setPhoneErr('Phone should be like +995 5xx-xx-xx-xx');
             }
+      }
     }
+
+    const validNextPage = () => {
+      if(isNameValid && isLastNameValid && isEmailValid && isPhoneValid){
+        props.nextpg();
+      }
     }
 
     const goNextPage = () => {
       showErrors();
-        if(isNameValid && isLastNameValid && isEmailValid && isPhoneValid){
-          props.nextpg();
-        }
+      if(check){
+        validNextPage();
+      }
     }
-  
+
+ 
     
 
     const showErrors = () => {

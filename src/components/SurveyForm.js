@@ -3,7 +3,6 @@ import './SurveyForm.css'
 import FirstSurvey from './FirstSurvey'
 import SecondSurvey from './SecondSurvey'
 import ThirdSurvey from './ThirdSurvey';
-import axios from 'axios';
 
 function SurveyForm(props) {
   const [page, setPage] = useState(1);
@@ -19,22 +18,26 @@ function SurveyForm(props) {
   function goNextPage() {    
       setPage((page) => page + 1);
       if(page === 2){
-          setData(prevState => ({
-            ...prevState,
-            first_name: sessionStorage.getItem('FirstName')
+        setData((prevState) => ({
+          ...prevState,
+            first_name: JSON.parse(sessionStorage.getItem('FirstName')),
+            last_name: JSON.parse(sessionStorage.getItem('LastName')),
+            email: JSON.parse(sessionStorage.getItem('Email')),
+            number: JSON.parse(sessionStorage.getItem('Number')),
+            items: JSON.parse(sessionStorage.getItem('items'))
         }));
       }
   }
 
   function postData  () {
-    const url = 'https://bootcamp-2022.devtest.ge/api/application';
-    axios.post(url, data)
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+    localStorage.setItem('FirstName', JSON.stringify(data.first_name));
+    localStorage.setItem('LastName', JSON.stringify(data.last_name));
+    localStorage.setItem('Email', JSON.stringify(data.email));
+    localStorage.setItem('Number', JSON.stringify(data.number));
+    localStorage.setItem('items', JSON.stringify(data.items));
+    sessionStorage.clear();
+    props.setStart(true);
+    props.openSurvey(false);
   }
 
 
@@ -54,15 +57,9 @@ function SurveyForm(props) {
       <div className="survey-pages">
         {page === 1 && <FirstSurvey clearStorage={clearStorage}  nextpg={goNextPage} prevpage={goPreviousPage}/>}
         {page === 2 && <SecondSurvey nextpg={goNextPage} prevpage={goPreviousPage}/>}
-        {page === 3 && <ThirdSurvey  />}
+        {page === 3 && <ThirdSurvey  prevpage={goPreviousPage} postData={postData} data={data}/>}
       </div>
 
-      <div className="buttons">
-        {page === 3 && <div className='submit-btn'>         
-                          <button type="submit" onClick={() => postData()}>Submit</button>
-                          <button onClick={goPreviousPage}>go back</button>
-                        </div>}
-        </div>
       </div>
       <div className="info"> information</div>
     </div>
