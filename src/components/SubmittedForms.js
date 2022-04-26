@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {FaArrowDown, FaArrowUp} from 'react-icons/fa'
+import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'
 import './SubmittedForms.css'
 
 function SubmittedForms() {
@@ -23,6 +23,7 @@ function SubmittedForms() {
 
   return (
     <div className="submittedForms">
+      <h2 className="submittedForms-header">Submitted Applications</h2>
       <div className="person-info">
         <div className="top-part" >
             <div className='top-part-text'>
@@ -31,8 +32,8 @@ function SubmittedForms() {
               {LastName}
             </div>
             <div className='top-part-arrow'>
-              {arrowDown? <FaArrowDown onClick = {() => showOrhideInfo()}/> 
-              : <FaArrowUp onClick = {() => showOrhideInfo()}/>}
+              {arrowDown? <IoIosArrowDown onClick = {() => showOrhideInfo()}/> 
+              : <IoIosArrowUp onClick = {() => showOrhideInfo()}/>}
             </div>
         </div>
         {hideOrShow?
@@ -41,15 +42,38 @@ function SubmittedForms() {
             <div className='personal-info'>
               <h3 className='personal-info-header'>Personal Information</h3>
               <div className='personal-info-list'>
-                <div className='firstName'>
-                  <p>First Name</p>
-                  <p> {firstName}</p>
+                <div className='personal-headers'>
+                  <p>First Name:</p>
+                  <p>Last Name:</p>
+                  <p>Email:</p>
+                  <p>Number:</p>
                 </div>
-                 <p className='lastName'> {LastName}</p>
+                <div className='personal-infos'>
+                  <p>{firstName}</p>
+                  <p>{LastName}</p>
+                  <p>{Email}</p>
+                  <p>{Number}</p>
+                </div>
               </div>
             </div>
-            <div id='skillSet'> 
-              <h3>SkillSet</h3>
+            <div className='skillSet'> 
+              <h3 className='skillSet-header'>SkillSet</h3>
+              <div className='skillSet-list'>
+              <div className='submitted-skillList'>
+                  {items.map(item => (
+                    <p>
+                      {item.skill}
+                    </p>
+                  ) )}
+              </div>
+              <div className='submitted-experienceList'>
+                 {items.map(item => (
+                    <p>
+                      {item.experience}
+                    </p>
+                  ) )}
+              </div>
+              </div>
             </div>
           </div>
         </div> : 

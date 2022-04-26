@@ -8,13 +8,24 @@
     background-color: black;
 }
 
-.person-info{
-    height: 80%;
+.submittedForms-header{
+    text-align: left;
     width: 80%;
+    color: #FFFFFF;
+    font-family: 'Rowdies', cursive;
+    font-weight: 700;
+}
+
+.person-info{
+    height: 90%;
+    width: 80%;
+    padding-top: 40px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
 }
 
 .top-part{
-    height: 10%;
+    height: 50px;
     background: #F05039;
     display: flex;
     justify-content: space-between;
@@ -39,27 +50,32 @@
     width: 100%;
 }
 
-.personal-info-header{
+
+.skillSet-header, .personal-info-header{
     color: #F05039;
     text-decoration: underline;
+    text-align: left;
 }
 
-.personal-info{
+.personal-info, .skillSet{
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.personal-info-list{
+.personal-info-list, .skillSet-list{
     display: flex;
-    flex-direction: column;
+    gap: 70px;
+    text-align: left;
 }
 
-.firstName{
+.personal-headers, .personal-infos, .submitted-skillList, .submitted-experienceList{
     display: flex;
-    justify-content: left;
-    gap: 60px;
+    flex-direction: column;
+    gap: 20px;
 }
+
+
 
 .full-info{    
     display : flex;

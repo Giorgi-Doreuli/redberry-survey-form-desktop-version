@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import './SecondSurvey.css'
 import SessionStorage from './SessionStorage'
-import SkillList from './SkillList';
+import SkillList from './SkillList'
+import {AiOutlineArrowLeft} from 'react-icons/ai'
 
 function SecondSurvey(props) {
   const skills = ['HTML', 'CSS', 'PHP', 'Laravel', 'React.JS', 'Vue.JS', 'Svelte', 'Angular'];
@@ -84,6 +85,7 @@ function SecondSurvey(props) {
 
   return (
     <div className="second-Survey">
+      <div className='second-survey-content'>
       <form className="form2">
         <div className="skills">
             <select onChange={e => setDropdownValues(e.target.value)} 
@@ -108,10 +110,10 @@ function SecondSurvey(props) {
             <select onChange={e => setExperiences(e.target.value)} 
                     defaultValue={'DEFAULT'} 
                     id='defaultExperience'>
-                <option value="DEFAULT" disabled>choose experience level</option>
-                <option id='<year' value='<year'> less than a year</option>
-                <option id='1year' value='1year'> 1 year</option>
-                <option id='2year' value='2year'> 2 year</option>
+                <option value="DEFAULT" disabled>Choose Years of Experience</option>
+                <option id='<year'> Less than a year</option>
+                <option id='1year'> 1 </option>
+                <option id='2year'> 2 </option>
           </select>
           <div className='error'>
             {isExperiencesValid ? '' : <p>{Experienceerror}</p>}
@@ -127,6 +129,18 @@ function SecondSurvey(props) {
       <div className='page-btn'>
               <button onClick={() => props.prevpage()} className="btn btn-primary">Go Previous</button>
               <button onClick={() => checkAndNextPage()} className="btn btn-primary">Go Next</button>
+      </div>
+
+      </div>
+
+      <div className="info"> 
+            <AiOutlineArrowLeft /> 
+            <div className='info-text'>
+              <h1>Skills</h1>
+              <h1>And</h1>
+              <h1>Experience</h1>
+            </div>
+
       </div>
     </div>
   )

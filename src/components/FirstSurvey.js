@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './FirstSurvey.css'
 import SessionStorage from './SessionStorage'
+import {AiOutlineArrowLeft} from 'react-icons/ai'
 
 
 function FirstSurvey(props) {
@@ -54,7 +55,7 @@ function FirstSurvey(props) {
           setEmailErr('');
             } else {
                     setIsEmailValid(false);
-                    setEmailErr('type email.');
+                    setEmailErr('Email should look like xxx@xxx.xx');
             }
       }
     }
@@ -70,7 +71,7 @@ function FirstSurvey(props) {
           check = true;
             } else {
                     setIsPhoneValid(false);
-                    setPhoneErr('Phone should be like +995 5xx-xx-xx-xx');
+                    setPhoneErr('Phone should look like +995 5xx-xx-xx-xx');
             }
       }
     }
@@ -102,9 +103,12 @@ function FirstSurvey(props) {
  
   return (
     <div className="first-survey">
+
+      <div className="first-survey-content">
       
       <div className="header">
-          <h2>hey, rocketeer, what are your coordinates</h2>
+          <h1>hey, rocketeer, what</h1>
+          <h1> are your coordinates ?</h1>
       </div>
         <form className="form1" >
               <input  type="text" placeholder='First Name' 
@@ -136,6 +140,17 @@ function FirstSurvey(props) {
           <div className='page-btn'>
               <button onClick={() => {props.prevpage(); props.clearStorage()}} className="btn btn-primary">Go Previous</button>
               <button onClick={() => goNextPage()} className="btn btn-primary">Go Next</button>
+          </div>
+
+          </div>
+
+          <div className="info"> 
+            <AiOutlineArrowLeft /> 
+            <div className='info-text'>
+              <h1>Personal</h1>
+              <h1>Information</h1>
+            </div>
+
           </div>
     </div>
   )

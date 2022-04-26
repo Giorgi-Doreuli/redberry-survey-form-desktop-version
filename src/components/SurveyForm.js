@@ -53,15 +53,12 @@ function SurveyForm(props) {
   
   return (
     <div className="surveyForm">
-      <div className="survey">
       <div className="survey-pages">
         {page === 1 && <FirstSurvey clearStorage={clearStorage}  nextpg={goNextPage} prevpage={goPreviousPage}/>}
         {page === 2 && <SecondSurvey nextpg={goNextPage} prevpage={goPreviousPage}/>}
         {page === 3 && <ThirdSurvey  prevpage={goPreviousPage} postData={postData} data={data}/>}
       </div>
 
-      </div>
-      <div className="info"> information</div>
     </div>
   )
 }

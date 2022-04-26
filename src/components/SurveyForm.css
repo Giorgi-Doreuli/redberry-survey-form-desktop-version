@@ -4,29 +4,12 @@
     display: flex;
 }
 
-.survey{
-    width: 50%;
-    height: 100%;
-    background-color:#fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-}
-
 
 .survey-pages{
     width: 100%;
     height: 100%;
 }
 
-.info{
-    width: 50%;
-    height: 100%;
-    background-color:crimson;
-}
 
 .survey-pages{
     height: 80%;
