@@ -3,7 +3,6 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     background-color: black;
 }
@@ -14,12 +13,13 @@
     color: #FFFFFF;
     font-family: 'Rowdies', cursive;
     font-weight: 700;
+    margin-top: 10px;
 }
 
 .person-info{
-    height: 90%;
+    height: auto;
     width: 80%;
-    padding-top: 40px;
+    padding-top: 10px;
     font-family: 'Montserrat', sans-serif;
     color: black;
 }
@@ -46,7 +46,7 @@
 
 .slider{
     background-color: #fff;
-    height: 90%;
+    height: 85%;
     width: 100%;
 }
 
@@ -63,10 +63,19 @@
     gap: 30px;
 }
 
+
+.skillSet{
+    width: 310px;
+}
+
 .personal-info-list, .skillSet-list{
     display: flex;
     gap: 70px;
     text-align: left;
+}
+
+.skillSet-list{
+    overflow: auto;
 }
 
 .personal-headers, .personal-infos, .submitted-skillList, .submitted-experienceList{
@@ -75,15 +84,29 @@
     gap: 20px;
 }
 
-
-
 .full-info{    
     display : flex;
     justify-content: space-around;
     padding-top: 40px;
+    height: 100%;
 }
 
 .empty{
     width: 0;
     height: 0;
+}
+
+.submittedToMain{
+    margin-top: 20px;
+    background-color: #F05039;
+    padding: 3px 30px;
+    border-radius: 50px;
+    outline: none;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
 }

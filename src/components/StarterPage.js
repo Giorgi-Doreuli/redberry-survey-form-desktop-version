@@ -21,7 +21,7 @@ function StarterPage() {
             </div> : ''}
         <div>
             {openSurvey ? <SurveyForm setStart={setStart} openSurvey={setOpenSurvey}/> : ""}
-            {openSubmitted ? <SubmittedForms/> : ""}
+            {openSubmitted ? <SubmittedForms setStart={setStart} openSubmitted={setOpenSubmitted}/> : ""}
         </div>
     </div>
   )

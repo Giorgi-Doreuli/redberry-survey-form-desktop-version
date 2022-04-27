@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'
 import './SubmittedForms.css'
 
-function SubmittedForms() {
+function SubmittedForms(props) {
   let firstName = JSON.parse(localStorage.getItem('FirstName'));
   let LastName = JSON.parse(localStorage.getItem('LastName'));
   let Email = JSON.parse(localStorage.getItem('Email'));
@@ -20,6 +20,11 @@ function SubmittedForms() {
       setArrowDown(false);
   }
 }
+
+  const prevpage = () => {
+    props.setStart(true);
+    props.openSubmitted(false);
+  } 
 
   return (
     <div className="submittedForms">
@@ -80,6 +85,7 @@ function SubmittedForms() {
         <div className='empty'>
           </div>}
         </div>
+        <button onClick={() => prevpage()} className="submittedToMain">Go to Main Page</button>
     </div>
   )
 }
