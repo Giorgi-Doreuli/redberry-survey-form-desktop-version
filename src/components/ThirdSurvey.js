@@ -5,9 +5,9 @@ function ThirdSurvey(props) {
   
   return (
     <div className="ThirdSurvey">
-      <div className='page-btn'>
-        <button onClick={() => props.prevpage()} className="btn btn-primary">Go Previous</button>
-        <button onClick={() => props.postData()} className="btn btn-primary">Go Next</button>
+      <div className='submit-goback'>
+        <button onClick={() => props.postData()} className="finalSubmit">Go Next</button>
+        <button onClick={() => props.prevpage()} className="goback">Go Previous</button>
       </div>
     </div>
   )

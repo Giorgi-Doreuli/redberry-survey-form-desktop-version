@@ -1,14 +1,47 @@
 .ThirdSurvey{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #0C0D0E;
 }
 
-.page-btn{
+.submit-goback{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    flex-direction: column;
+    gap: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.finalSubmit{
+    background-color: #F05039;
+    padding: 3px 30px;
+    border-radius: 50px;
+    outline: none;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+
+.goback{
+    background-color: transparent;
+    padding: 10px;
+    outline: none;
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 1.3rem;
+    z-index: 999;
 }

@@ -5,6 +5,19 @@
     background-color: #fff;
 }
 
+.second-survey-header{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    color: #F05039;
+    font-family: 'Rowdies', cursive;
+    font-size: 64px;
+    flex-direction: column;
+}
+
+
 .second-survey-content{
     width: 50%;
     height: 100%;
@@ -22,8 +35,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 35px;
-    margin-top: 70px;
+    gap: 25px;
     font-family: 'Montserrat', sans-serif;
 }
 

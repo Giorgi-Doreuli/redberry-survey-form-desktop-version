@@ -86,6 +86,10 @@ function SecondSurvey(props) {
   return (
     <div className="second-Survey">
       <div className='second-survey-content'>
+      <div className="second-survey-header">
+          <h1>Tell us about your skills </h1>
+      </div>
+
       <form className="form2">
         <div className="skills">
             <select onChange={e => setDropdownValues(e.target.value)} 

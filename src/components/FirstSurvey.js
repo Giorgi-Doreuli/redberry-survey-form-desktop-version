@@ -107,7 +107,7 @@ function FirstSurvey(props) {
 
       <div className="first-survey-content">
       
-      <div className="header">
+      <div className="first-survey-header">
           <h1>hey, rocketeer, what</h1>
           <h1> are your coordinates ?</h1>
       </div>
