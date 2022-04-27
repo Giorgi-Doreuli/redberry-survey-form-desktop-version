@@ -52,6 +52,10 @@ input[type=text], input[type=email]{
     width: 350px;
 }
 
+input:focus{
+    outline: none;
+}
+
 .error{
     height: 50px;
 }
@@ -62,3 +66,4 @@ input[type=text], input[type=email]{
     justify-content: center;
     gap: 100px;
 }
+

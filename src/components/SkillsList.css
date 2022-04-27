@@ -1,18 +1,41 @@
 .skill-experience{
     display: flex;
     gap: 25px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border: 3px solid red;
+    border: 1px solid black;
     width: 350px;
+    padding: 10px 0px;
+    margin: auto;
 }
 
 .skillList{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
     gap: 15px;
-    height: 100%;
-    width: 100%;
+    height: 190px;
+    width: 513.6px;;
+    margin-bottom: 53.4px;
+    overflow: auto;
+    overflow-y: overlay;
+}
+
+.skill{
+    width: 67.41px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.experience{
+    padding: 0;
+    margin: 0;
+}
+
+.remove{
+    color: #F05039;
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
 }

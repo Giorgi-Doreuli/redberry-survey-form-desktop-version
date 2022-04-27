@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import './FirstSurvey.css'
 import SessionStorage from './SessionStorage'
-import {AiOutlineArrowLeft} from 'react-icons/ai'
+import {AiOutlineArrowLeft, AiOutlineArrowRight} from 'react-icons/ai'
+
 
 
 function FirstSurvey(props) {
@@ -138,8 +139,12 @@ function FirstSurvey(props) {
                       </div>
         </form>  
           <div className='page-btn'>
-              <button onClick={() => {props.prevpage(); props.clearStorage()}} className="btn btn-primary">Go Previous</button>
-              <button onClick={() => goNextPage()} className="btn btn-primary">Go Next</button>
+            <div className='prev-page'>
+              <AiOutlineArrowLeft onClick={() => {props.prevpage(); props.clearStorage()}}/> 
+            </div>
+            <div className='next-page'>
+              <AiOutlineArrowRight onClick={() => goNextPage()}/> 
+            </div>
           </div>
 
           </div>

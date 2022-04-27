@@ -5,9 +5,15 @@
     background-color: #fff;
 }
 
-.second-Survey-content{
+.second-survey-content{
     width: 50%;
     height: 100%;
+}
+
+.skillQuantityError{
+    height: 160px;
+    display: flex;
+    align-items: center;
 }
 
 .form2{
@@ -16,9 +22,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    margin: auto;
+    gap: 35px;
+    margin-top: 70px;
+    font-family: 'Montserrat', sans-serif;
 }
+
+select:focus{
+    outline: none;
+}
+
 
 
 select{
@@ -26,16 +38,32 @@ select{
     width: 350px;
 }
 
-.add-btn{
+.add-btn-content{
     display: flex;
-    margin-right: -120px;
+    justify-content: flex-end;
+    color: #F05039;
+    font-size: 2rem;
+    width: 350px;
+}
+
+.page-btn:focus{
+    outline: none;
+    box-shadow: none;
 }
 
 .page-btn{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 100px;
+    flex-direction: row;
+    color: #F05039;
+    font-size: 2rem;
+}
+
+.prev-page, .next-page {
+    cursor: pointer;
+}
+
+.prev-page{
+    padding-right: 140px;;
 }
 
 .error{

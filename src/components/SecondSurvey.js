@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './SecondSurvey.css'
 import SessionStorage from './SessionStorage'
 import SkillList from './SkillList'
-import {AiOutlineArrowLeft} from 'react-icons/ai'
+import {AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlineFolderAdd} from 'react-icons/ai'
 
 function SecondSurvey(props) {
   const skills = ['HTML', 'CSS', 'PHP', 'Laravel', 'React.JS', 'Vue.JS', 'Svelte', 'Angular'];
@@ -119,16 +119,23 @@ function SecondSurvey(props) {
             {isExperiencesValid ? '' : <p>{Experienceerror}</p>}
           </div>
       </div>
-  
-          <button type="button" className="add-btn btn btn-primary" onClick={() => addSkill()}>Add Programming Language</button>
+          <div className='add-btn-content'>
+            <div className='add-btn'>
+              <AiOutlineFolderAdd onClick={() => addSkill()}/>
+            </div>
+          </div>
           {isSkillQuantityValid ? <SkillList items = {items} removeSkill={setItems} itemsLength={items.length}/> :
-          <div>
-            <h2 className='skillQuantityError'>{skillQuantityError}</h2>
-            </div>}
+          <div className='skillQuantityError'>
+            <h2>{skillQuantityError}</h2>
+          </div>}
       </form>
       <div className='page-btn'>
-              <button onClick={() => props.prevpage()} className="btn btn-primary">Go Previous</button>
-              <button onClick={() => checkAndNextPage()} className="btn btn-primary">Go Next</button>
+        <div className='prev-page'>
+          <AiOutlineArrowLeft onClick={() => props.prevpage()}/> 
+        </div>
+        <div className='next-page'>
+        <AiOutlineArrowRight onClick={() => checkAndNextPage()}/> 
+        </div>
       </div>
 
       </div>

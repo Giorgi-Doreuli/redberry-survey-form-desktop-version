@@ -1,5 +1,6 @@
 import React from 'react'
 import './SkillsList.css'
+import {AiOutlineMinusCircle} from 'react-icons/ai'
 
 function SkillList(props) {
     const updatedList = props.items;
@@ -14,7 +15,9 @@ function SkillList(props) {
             <div className="skill-experience" key={i}>
                 <p className="skill">{item.skill}</p>
                 <p className="experience">{item.experience}</p>
-                <button type='button' onClick={() => removeSkill(i)}> remove </button>
+                <div className='remove'>
+                    <AiOutlineMinusCircle  onClick={() => removeSkill(i)}/>
+                </div>
             </div>
         ))}
     </div>
