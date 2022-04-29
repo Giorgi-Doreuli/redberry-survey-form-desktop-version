@@ -10,6 +10,8 @@ function SubmittedForms(props) {
   let items = JSON.parse(localStorage.getItem('items'));
   const [arrowDown, setArrowDown] = useState(true);
   const [hideOrShow, setHideOrShow] = useState(false);
+  const localStorageExits = localStorage.getItem("FirstName");
+  const hideSlider = localStorageExits ? true : false;
 
   const showOrhideInfo = () => {
     if(hideOrShow) {
@@ -30,6 +32,7 @@ function SubmittedForms(props) {
   return (
     <div className="submittedForms">
       <h2 className="submittedForms-header">Submitted Applications</h2>
+      {hideSlider ? 
       <div className="person-info">
         <div className="top-part" >
             <div className='top-part-text'>
@@ -67,14 +70,14 @@ function SubmittedForms(props) {
               <div className='skillSet-list'>
               <div className='submitted-skillList'>
                   {items.map(item => (
-                    <p>
+                    <p key={item.skill}>
                       {item.skill}
                     </p>
                   ) )}
               </div>
               <div className='submitted-experienceList'>
                  {items.map(item => (
-                    <p>
+                    <p key={item.experience}>
                       {item.experience}
                     </p>
                   ) )}
@@ -86,6 +89,8 @@ function SubmittedForms(props) {
         <div className='empty'>
           </div>}
         </div>
+        :
+        ''}
         <button onClick={() => prevpage()} className="submittedToMain">Go to Main Page</button>
     </div>
   )
